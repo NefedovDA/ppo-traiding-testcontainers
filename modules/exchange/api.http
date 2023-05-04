@@ -1,0 +1,33 @@
+###
+GET http://localhost:8080/exchange/healthcheck
+
+###
+GET http://localhost:8080/exchange/companies?page=0&size=20
+
+###
+POST http://localhost:8080/exchange/companies
+Content-Type: application/json
+
+{
+    "id": "YAN",
+    "name": "Yandex",
+    "share": {
+        "price": 100,
+        "amount": 1000
+    }
+}
+
+###
+GET http://localhost:8080/exchange/companies/YAN
+
+###
+DELETE http://localhost:8080/exchange/companies/YAN
+
+###
+POST http://localhost:8080/exchange/companies/YAN/order?amount=100&totalPrice=10000
+
+###
+PUT http://localhost:8080/exchange/companies/YAN/share/price?price=100
+
+###
+PATCH http://localhost:8080/exchange/companies/YAN/share/amount?amount=800

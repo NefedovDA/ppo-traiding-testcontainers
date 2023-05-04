@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+    exchange:
+        image: 'spark-trading-exchange:latest'
+        environment:
+            PORT: '3000'
+            H2_FILE: '/storage/db'
+
+    admin:
+        image: 'spark-trading-admin:latest'
+        environment:
+            PORT: '8080'
+            H2_FILE: '/storage/db'
+            EXCHANGE_SERVER: 'http://exchange:3000/'
+        depends_on:
+        - exchange

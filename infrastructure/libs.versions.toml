@@ -1,0 +1,97 @@
+[versions]
+java = '17'
+kotlin = '1.8.20'
+logback = '1.2.11'
+ktor = '2.2.4'
+ktlint = '11.1.0'
+detekt = '1.22.0'
+kodein-di = '7.16.0'
+kotest = '5.5.5'
+kotest-testcontainers = '1.3.4'
+mockk = '1.13.3'
+config4k = '0.4.2'
+exposed = '0.41.1'
+h2 = '2.1.214'
+
+[libraries]
+# Kotlin
+kotlin-gradlePlugin = { module = 'org.jetbrains.kotlin:kotlin-gradle-plugin', version.ref = 'kotlin' }
+kotlin-serialization-gradlePlugin = { module = 'org.jetbrains.kotlin:kotlin-serialization', version.ref = 'kotlin' }
+
+# Ktor
+ktor-gradlePlugin = { module = 'io.ktor.plugin:plugin', version.ref = 'ktor' }
+ktor-server-core = { module = 'io.ktor:ktor-server-core-jvm', version.ref = 'ktor' }
+ktor-server-netty = { module = 'io.ktor:ktor-server-netty-jvm', version.ref = 'ktor' }
+ktor-server-contentNegotation = { module = 'io.ktor:ktor-server-content-negotiation-jvm', version.ref = 'ktor' }
+ktor-server-auth = { module = 'io.ktor:ktor-server-auth-jvm', version.ref = 'ktor' }
+ktor-server-authJWT = { module = 'io.ktor:ktor-server-auth-jwt-jvm', version.ref = 'ktor' }
+
+ktor-client-core = { module = 'io.ktor:ktor-client-core', version.ref = 'ktor' }
+ktor-client-okhttp = { module = 'io.ktor:ktor-client-okhttp', version.ref = 'ktor' }
+ktor-client-contentNegotation = { module = 'io.ktor:ktor-client-content-negotiation', version.ref = 'ktor' }
+ktor-client-logging = { module = 'io.ktor:ktor-client-logging', version.ref = 'ktor' }
+
+ktor-serialization-kotlinx-json = { module = 'io.ktor:ktor-serialization-kotlinx-json-jvm', version.ref = 'ktor' }
+
+# Logging
+logback-classic = { module = 'ch.qos.logback:logback-classic', version.ref = 'logback' }
+
+# DI
+kodein-di = { module = 'org.kodein.di:kodein-di', version.ref = 'kodein-di' }
+kodein-ktor-controller = { module = 'org.kodein.di:kodein-di-framework-ktor-server-controller-jvm', version.ref = 'kodein-di' }
+
+# Lint & Format
+ktlint-gradlePlugin = { module = 'org.jlleitschuh.gradle:ktlint-gradle', version.ref = 'ktlint' }
+detekt-gradlePlugin = { module = 'io.gitlab.arturbosch.detekt:detekt-gradle-plugin', version.ref = 'detekt' }
+
+# Testing
+kotest-runnerJUnit5 = { module = 'io.kotest:kotest-runner-junit5-jvm', version.ref = 'kotest' }
+kotest-assertions = { module = 'io.kotest:kotest-assertions-core-jvm', version.ref = 'kotest' }
+kotest-property = { module = 'io.kotest:kotest-property-jvm', version.ref = 'kotest' }
+
+kotest-testcontainers = { module = 'io.kotest.extensions:kotest-extensions-testcontainers', version.ref = 'kotest-testcontainers' }
+
+mockk = { module = 'io.mockk:mockk', version.ref = 'mockk' }
+
+# Storage
+exposed-core = { module = 'org.jetbrains.exposed:exposed-core', version.ref = 'exposed' }
+exposed-dao = { module = 'org.jetbrains.exposed:exposed-dao', version.ref = 'exposed' }
+exposed-jdbc = { module = 'org.jetbrains.exposed:exposed-jdbc', version.ref = 'exposed' }
+
+h2 = { module = 'com.h2database:h2', version.ref = 'h2' }
+
+# Utils
+config4k = { module = 'io.github.config4k:config4k', version.ref = 'config4k' }
+
+[bundles]
+
+kotest = [
+    'kotest-runnerJUnit5',
+    'kotest-assertions',
+    'kotest-property',
+    'mockk',
+]
+
+ktor-server = [
+    'ktor-server-core',
+    'ktor-server-netty',
+    'ktor-server-contentNegotation',
+    'ktor-server-auth',
+    'ktor-server-authJWT',
+    'ktor-serialization-kotlinx-json',
+]
+
+ktor-client = [
+    'ktor-client-core',
+    'ktor-client-okhttp',
+    'ktor-client-logging',
+    'ktor-client-contentNegotation',
+    'ktor-serialization-kotlinx-json',
+]
+
+exposed = [
+    'h2',
+    'exposed-core',
+    'exposed-dao',
+    'exposed-jdbc',
+]
